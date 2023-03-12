@@ -42,6 +42,7 @@ public class MemberDAO {
 		}
 	}
 			
+	// 일반 로그인 - loginMember(MemberDTO dto)
 	public int loginMember(MemberDTO dto) {
 			
 		int result = -1;
@@ -82,6 +83,7 @@ public class MemberDAO {
 		
 	} // loginMember
 		
+	// 네이버 회원가입 - naverJoin(MemberDTO dto)
 	public void naverJoin(MemberDTO dto) {
 		
 		int Mem_num = 0;
@@ -124,7 +126,7 @@ public class MemberDAO {
 	}
 	// naverJoin(DTO)
 	
-	// naverLogin(Mem_id, Mem_pw)
+	// 네이버 로그인 - naverLogin(Mem_id, Mem_pw)
 	public int naverLogin(String Mem_id, String Mem_pw) {
 		
 		int result = -1;
@@ -162,9 +164,9 @@ public class MemberDAO {
 		
 		return result;
 	}
-	// memberNaverLogin(mem_id, mem_pw) - 끝
+	// naverLogin(Mem_id, Mem_pw)
 	
-	// deleteMember
+	// 회원 탈퇴 - deleteMember (MemberDTO dto)
 	public int deleteMember (MemberDTO dto) {
 			
 		// 0 : 비밀번호 오류 / 1 : 정상적으로 삭제 완료
@@ -198,7 +200,6 @@ public class MemberDAO {
 					}
 				} else{
 					result = -1;
-					System.out.println(" 탈퇴 실패 - 아이디 불일치 ");
 				}
 
 		} catch (Exception e) {
@@ -209,9 +210,9 @@ public class MemberDAO {
 			
 		return result;
 		
-	} // deleteBoard
+	} // deleteMember
 	
-	// getMemberInfo - 등급조회
+	// 등급 조회 - getMemberInfo(String Mem_id)
 	public MemberDTO getMemberInfo(String Mem_id){
 			
 		MemberDTO dto = null;
@@ -239,14 +240,74 @@ public class MemberDAO {
 			
 		return dto;
 		
-	} // 등급조회
+	} // getMemberInfo(String Mem_id)
 	
 	
+	// 아이디 찾기 - findId(mem_name, mem_email)
+	public MemberDTO memberFindId(String Mem_name, String Mem_email) {
+		
+		MemberDTO dto = null;
+		
+		try {
+			
+			con = getCon();
+			
+			sql = "select * from member where Mem_name=? and Mem_email=?";
+			pstmt = con.prepareStatement(sql);
+			
+	        pstmt.setString(1, Mem_name);
+	        pstmt.setString(2, Mem_email);
+	        
+	        rs = pstmt.executeQuery();
+	        
+	        if(rs.next()) {
+	        	dto = new MemberDTO();
+	        	
+				dto.setMem_id(rs.getString("Mem_id"));
+	        }
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		return dto;
+	}
+	// findId(mem_name, mem_email)
 	
 	
+	// 비밀번호 찾기 - findPw(MemberDTO dto)
+	public MemberDTO findPw(MemberDTO dto) {
+				
+		try {
+			
+			con = getCon();
+			
+			sql = "select * from member where Mem_id=? and Mem_name=? and Mem_email=?";
+			pstmt = con.prepareStatement(sql);
+			
+	        pstmt.setString(1, );
+	        pstmt.setString(2, );
+	        pstmt.setString(3, );
+	        
+	        rs = pstmt.executeQuery();
+	        
+	        if(rs.next()) {
+	        	MemberDTO dto = new MemberDTO();
+	        	
+				dto.setMem_pw(rs.getString("Mem_pw"));
+	        }
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		return dto;
+	}
+	// 
 
-	
-	
-	
 		
 } // MemberDAO

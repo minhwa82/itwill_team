@@ -22,12 +22,12 @@
 			<h1 class="post-title">My page</h1>
 	<div class="author-meta">
 		<span class="">회원정보 수정</span>
-		<span class=""><a href="MyTicket.mv">예매확인</a></span>
-		<span class=""><a href="Bonus.mv">등급확인</a></span>
+		<span class=""><a href="MyTicket.me">예매확인</a></span>
+		<span class=""><a href="Bonus.me">등급확인</a></span>
 		<span class="">결제내역</span>
 		<span class="">1:1 문의내역</span>
 		<span class="">MY영화관</span>
-		<span class=""><a href="Delete.mv">회원탈퇴</a> </span>
+		<span class=""><a href="Delete.me">회원탈퇴</a> </span>
 	</div>
 		</div>
 	</div>

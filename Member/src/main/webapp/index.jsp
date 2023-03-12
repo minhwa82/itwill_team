@@ -12,7 +12,7 @@
 	
 	<%
 	
-	response.sendRedirect("./Main.mv");
+	response.sendRedirect("./Main.me");
 
 	%>
 

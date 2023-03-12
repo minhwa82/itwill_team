@@ -54,7 +54,7 @@ public class LoginAction implements Action {
 		session.setAttribute("id", dto.getMem_id());
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("./Main.mv");
+		forward.setPath("./Main.me");
 		forward.setRedirect(true);
 		
 		return forward;

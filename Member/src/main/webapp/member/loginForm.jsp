@@ -10,7 +10,7 @@
 
 	<h1>안영화세요</h1>
 		
-		<form action="./LoginAction.mv" method="post">
+		<form action="./LoginAction.me" method="post">
 		아이디 <input type="text" name="id"> <br>
 		비밀번호 <input type="password" name="pw"> <br>
 		 <input type="hidden" name="name" value=""> 

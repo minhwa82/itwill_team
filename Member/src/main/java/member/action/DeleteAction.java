@@ -62,7 +62,7 @@ public class DeleteAction implements Action {
 		
 		out.print("<script>");
 		out.print("alert('회원탈퇴 성공');");
-		out.print("location.href='./Main.mv';");
+		out.print("location.href='./Main.me';");
 		out.print("</script>");
 		out.close();
 		return null;

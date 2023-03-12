@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("*.mv")
+@WebServlet("*.me")
 public class FrontController extends HttpServlet{
 
 	protected void doProcess(HttpServletRequest request, 
@@ -41,7 +41,7 @@ public class FrontController extends HttpServlet{
 		ActionForward forward = null;
 		
 		if(command.equals("/Join.mv")) {
-			System.out.println(" C : /oin.me 호출! ");
+			System.out.println(" C : /join.me 호출! ");
 			System.out.println(" C : DB 동작 필요 없음, view 필요");
 			
 			// 패턴1
@@ -50,8 +50,8 @@ public class FrontController extends HttpServlet{
 			forward.setRedirect(false);
 		} 
 		
-		else if(command.equals("/Main.mv")) {
-			System.out.println(" C : /Main.mv 호출");
+		else if(command.equals("/Main.me")) {
+			System.out.println(" C : /Main.me 호출");
 			System.out.println(" C : DB 사용 X, view 필요");
 			
 			// 패턴1
@@ -59,8 +59,8 @@ public class FrontController extends HttpServlet{
 			forward.setPath("./main/main.jsp");
 			forward.setRedirect(false);
 		}
-		else if (command.equals("/Login.mv")) {
-			System.out.println(" C : /Login.mv 호출! ");
+		else if (command.equals("/Login.me")) {
+			System.out.println(" C : /Login.me 호출! ");
 			
 			// 패턴1
 			forward = new ActionForward();
@@ -68,8 +68,8 @@ public class FrontController extends HttpServlet{
 			forward.setRedirect(false); 
 		} 
 		
-		else if (command.equals("/LoginAction.mv")) {
-			System.out.println(" C : /LoginAction.mv 호출! ");
+		else if (command.equals("/LoginAction.me")) {
+			System.out.println(" C : /LoginAction.me 호출! ");
 			System.out.println(" C : DB 동작 필요, view 이동  ");
 			
 			// 패턴2
@@ -80,16 +80,16 @@ public class FrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/NaverLogin.mv")) {
-			System.out.println(" C : /NaverLogin.mv 호출 ");
+		else if(command.equals("/NaverLogin.me")) {
+			System.out.println(" C : /NaverLogin.me 호출 ");
 			
 			forward = new ActionForward();
 			forward.setPath("./member/naverLogin.jsp");
 			forward.setRedirect(false);	
 					
 		}
-		else if(command.equals("/NaverLoginAction.mv")) {
-			System.out.println(" C : /NaverLoginAction.mv 호출 ");
+		else if(command.equals("/NaverLoginAction.me")) {
+			System.out.println(" C : /NaverLoginAction.me 호출 ");
 			
 			action = new NaverLoginAction();
 			try {
@@ -98,8 +98,8 @@ public class FrontController extends HttpServlet{
 				e.printStackTrace();
 			}	
 		}
-		else if (command.equals("/LogoutAction.mv")) {
-			System.out.println(" C : /LogoutAction.mv 호출! ");
+		else if (command.equals("/LogoutAction.me")) {
+			System.out.println(" C : /LogoutAction.me 호출! ");
 			
 			action = new LogoutAcion();
 			try {
@@ -108,14 +108,14 @@ public class FrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/Delete.mv")) {
+		else if(command.equals("/Delete.me")) {
 			
 			forward = new ActionForward();
 			forward.setPath("./member/deleteForm.jsp");
 			forward.setRedirect(false); 
 			
 		}
-		else if(command.equals("/DeleteAction.mv")) {
+		else if(command.equals("/DeleteAction.me")) {
 			
 			// 패턴2
 			action = new DeleteAction();
@@ -125,7 +125,7 @@ public class FrontController extends HttpServlet{
 				e.printStackTrace();
 			}				
 		}
-		else if(command.equals("/MyTicket.mv")) {
+		else if(command.equals("/MyTicket.me")) {
 			
 			action = new MyTicketAction();
 			try {
@@ -135,16 +135,16 @@ public class FrontController extends HttpServlet{
 			}
 			
 		}
-		else if(command.equals("/MyPage.mv")) {
-			System.out.println(" C : /LoginAction.mv 호출! ");
+		else if(command.equals("/MyPage.me")) {
+			System.out.println(" C : /MyPage.me 호출! ");
 			
 			// 패턴1
 			forward = new ActionForward();
 			forward.setPath("./member/myPage.jsp");
 			forward.setRedirect(false); 
 		}
-		else if(command.equals("/Bonus.mv")) {
-			System.out.println("C : Bonus.mv 호출");
+		else if(command.equals("/Bonus.me")) {
+			System.out.println(" C : Bonus.me 호출 ");
 			action = new BonusAction();
 			try {
 				forward = action.execute(request, response);
@@ -152,6 +152,58 @@ public class FrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/findId.me")) {
+			System.out.println(" C : /findId.me 호출 ");
+			
+			forward = new ActionForward();
+			forward.setPath("./member/findId.jsp");
+			forward.setRedirect(false);
+			
+		}
+		else if(command.equals("/findIdAction.me")) {
+			System.out.println(" C : /findIdAction.me 호출 ");
+			
+			// MemberFindIdAction.me() 객체
+			action = new findIdAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/findIdResult.me")) {
+			System.out.println(" C : /fFindIdResult.me 호출 ");
+
+			forward = new ActionForward();
+			forward.setPath("./member/findIdResult.jsp");
+			forward.setRedirect(false);
+		}
+		else if(command.equals("/findPw.me")) {
+			System.out.println(" C : /findPw.me 호출 ");
+
+			forward = new ActionForward();
+			forward.setPath("./member/findPw.jsp");
+			forward.setRedirect(false);
+		}
+		else if(command.equals("/findPwAction.me")) {
+			System.out.println(" C : /findPwAction.me 호출");
+
+			// MemberFindPwAction.me() 객체
+			action = new findPwAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}else if(command.equals("/findPwResult.me")) {
+			System.out.println(" C : /findPwResult.me 호출 ");
+
+			forward = new ActionForward();
+			forward.setPath("./member/findPwResult.jsp");
+			forward.setRedirect(false);
+		}
+		
 
 		System.out.println("\n 2. 가상주소 매핑 - 끝 ");
 		///////////////////////// 2. 가상 주소 매핑 /////////////////////////

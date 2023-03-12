@@ -47,7 +47,7 @@ public class NaverLoginAction implements Action{
 	
 				HttpSession session = request.getSession();
 				session.setAttribute("Mem_id", dto.getMem_id());
-				forward.setPath("./Main.mv");
+				forward.setPath("./Main.me");
 				forward.setRedirect(true);		
 							
 				return forward;	
@@ -56,7 +56,7 @@ public class NaverLoginAction implements Action{
 				// 로그인 성공 -> 아이디 세션영역에 저장
 				HttpSession session = request.getSession();
 				session.setAttribute("Mem_id", dto.getMem_id());
-				forward.setPath("./Main.mv");
+				forward.setPath("./Main.me");
 				forward.setRedirect(true);
 				
 				return forward;	

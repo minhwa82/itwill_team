@@ -17,12 +17,14 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anon
 
 	<h1>안영화세요</h1>
 	
-	<form action="./LoginAction.mv" method="post">
+	<form action="./LoginAction.me" method="post">
 		아이디 <input type="text" name="id"> <br>
 		비밀번호 <input type="password" name="pw"> <br>
 		 <input type="hidden" name="name" value=""> 
 		<input type="submit" value="로그인">
 		<input type="button" value="회원가입" ><br>
+		<a href="./findId.me" id="forgotId">아이디 찾기</a>
+		<a href="./findPw.me" id="forgotPw">비밀번호 찾기</a>
 	</form>
 		
 <!-- SNS로그인 관련 -->
@@ -38,7 +40,7 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anon
 <!-- 네이버 로그인 관련 -->
 
 <script type="text/javascript">
-	  	var naver_id_login = new naver_id_login("Rv8AbbtIDIKKhJ_g5wd4", "http://localhost:8080/Member/NaverLogin.mv")
+	  	var naver_id_login = new naver_id_login("Rv8AbbtIDIKKhJ_g5wd4", "http://localhost:8080/Member/NaverLogin.me")
 	  	var state = naver_id_login.getUniqState();
 	  	naver_id_login.setDomain("http://localhost8080/");
 	  	naver_id_login.setButton("green",2,40);

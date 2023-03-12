@@ -15,7 +15,7 @@
 <div id="naver_id_login"></div>
 			
 <script type="text/javascript">
-var naver_id_login = new naver_id_login("Rv8AbbtIDIKKhJ_g5wd4", "http://localhost:8080/Member/NaverLoginAction.mv")
+var naver_id_login = new naver_id_login("Rv8AbbtIDIKKhJ_g5wd4", "http://localhost:8080/Member/NaverLoginAction.me")
 //접근 토큰 값 출력
 // alert(naver_id_login.oauthParams.access_token);
 //네이버 사용자 프로필 조회
@@ -37,7 +37,7 @@ function naverSignInCallback() {
 
 
  	$.ajax({
-		url: "./NaverLoginAction.mv",
+		url: "./NaverLoginAction.me",
 		type: 'post',     
 		data : {
 			id:naver_id_login.getProfileData('id'),
@@ -48,7 +48,7 @@ function naverSignInCallback() {
 		},
 
 		error:function(){
-		location.href="./Main.mv";
+		location.href="./Main.me";
  		}
 	})
  	
